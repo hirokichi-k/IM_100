@@ -1,2 +1,2 @@
-
+print("yo!")
 print("Hello!")
