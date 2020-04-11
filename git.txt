@@ -1,0 +1,11 @@
+$git add ファイル名orフォルダ名
+
+$git commit -m "メッセージ"
+
+$git remote add origin https://github.com/hirokichi-k/IM_100.git
+
+$git push -u origin master
+
+
+$git clone URL
+
