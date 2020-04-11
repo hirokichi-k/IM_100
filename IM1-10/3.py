@@ -10,7 +10,9 @@ img[:, :, 1] *= 0.7152 #G
 img[:, :, 2] *= 0.2126 #R
 
 # img2 = img[:, :, 0] + img[:, :, 1] + img[:, :, 2]
-
 img2 = np.sum(img, axis=2).astype(np.uint8)
 
-for(i = 0 ; i < img2[][].length ; i++)
+# img2[img2 < 128] = 0
+# img2[img2 >= 128] = 255
+img2 = np.where(img2 < 128, 0, 255 )
+
