@@ -16,3 +16,5 @@ img2 = np.sum(img, axis=2).astype(np.uint8)
 # img2[img2 >= 128] = 255
 img2 = np.where(img2 < 128, 0, 255 )
 
+cv2.imwrite("out_figure3.jpg",img2)
+
