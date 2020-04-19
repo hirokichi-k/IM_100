@@ -2,10 +2,17 @@ $git add ファイル名orフォルダ名
 
 $git commit -m "メッセージ"
 
-$git remote add origin https://github.com/hirokichi-k/IM_100.git
+$git remote add origin https://github.com/hirokichi-k/IM_100.git 
+初回だけ
 
 $git push -u origin master
 
+username: hirokichi-k
+pass 大文字小文字数字含めたもの
+
 
 $git clone URL
+
+$git status
+git管理下のファイル確認
 
