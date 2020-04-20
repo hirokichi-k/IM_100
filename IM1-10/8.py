@@ -18,5 +18,3 @@ img = cv2.imread("imori.jpg")
 out = mean_pool(img)
 
 cv2.imwrite("out_figure8.jpg",out)
-
-
