@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-T, K = 8, 8
+T, K = 8, 4
 channel = 3
 
 def w(x, y, u, v):
@@ -40,14 +40,34 @@ def idct(img):
                         for v in range(K):
                             for u in range(K):
                                 out[y+yi, x+xi, c] += img[v+yi, u+xi, c] * w(x, y, u, v)
-
     out = np.clip(np.round(out).astype(np.uint8), 0, 255)
     return out
+
+def MSE(img1, out):
+    H,W,_ = img1.shape
+    return np.sum((img1 - out)**2)/(H*W*channel)
+
+def PSNR(mse):
+    vmax = 255
+    return 10*np.log10(vmax*vmax/mse)
+
+def bitrate():
+    return 1. * T * K * K /(T*T)
+
 
 img = cv2.imread("imori.jpg").astype(np.float32)
 
 img1 = dct(img).astype(np.float32)
 out = idct(img1)
 
-cv2.imwrite("out.jpg", out)
+mse = MSE(img, out)
+
+psnr = PSNR(mse)
+
+bit = bitrate()
+
+
+print("MSE:", mse)
+print("PSNR:", psnr)
+print("bitrate:", bit)
 
